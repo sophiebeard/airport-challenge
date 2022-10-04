@@ -14,7 +14,10 @@ class Airport {
   };
 
   isFull = () => {
-    return this.planesInAirport.length >= this.capacity;
+    if (this.planesInAirport.length >= this.capacity) {
+      return `${plane} cannot land because the airport is at capacity.`;
+    }
+    
   };
 
 }

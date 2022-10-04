@@ -69,7 +69,7 @@ result = undefined;
 airport = null;
 plane = null;
 
-// Test 4 - Test that the capacity changes when setCapacity is called?
+// Test 4 - Test that the capacity can be changed?
 
 //Arrange
 airport = new Airport(1);
@@ -112,3 +112,30 @@ actual = undefined;
 result = undefined;
 airport = null;
 plane = null;
+
+// Test 6 - Test that if a plane doesn't land, a string is returned to inform the traffic control officer?
+
+//Arrange
+airport = new Airport(1);
+plane = { id: `easyJet` };
+expected = `${plane} cannot land because the airport is at capacity.`;
+airport.landPlane(plane);
+
+//Act
+plane = { id: `ryanAir` };
+airport.landPlane(plane);
+actual = airport.isFull();
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 6 - The plane officer is informed if a plane cannot land: ${result}`);
+
+//Clean-Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+
+
+
