@@ -68,3 +68,23 @@ actual = undefined;
 result = undefined;
 airport = null;
 plane = null;
+
+// Test 4 - Test that the capacity changes when setCapacity is called?
+
+//Arrange
+airport = new Airport(1);
+expected = 1;
+
+//Act
+actual = airport.capacity;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 4 - The capacity of the airport can be changed: ${result}`);
+
+//Clean-Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
