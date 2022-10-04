@@ -88,3 +88,27 @@ actual = undefined;
 result = undefined;
 airport = null;
 plane = null;
+
+// Test 5 - Test that if an airport's capacity is full, a plane cannot land?
+
+//Arrange
+airport = new Airport(1);
+plane = { id: `easyJet` };
+airport.landPlane(plane);
+
+//Act
+expected = true;
+plane = { id: `ryanAir` };
+airport.landPlane(plane);
+actual = airport.isFull();
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 5 - A plane cannot land if the airport is at capacity: ${result}`);
+
+//Clean-Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
