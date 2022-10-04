@@ -49,4 +49,22 @@ result = undefined;
 airport = null;
 plane = null;
 
+// Test 3 - Is a default capacity set when an airport is created?
 
+//Arrange
+airport = new Airport();
+expected = 0;
+
+//Act
+actual = airport.capacity;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 3 - Airports have a default capacity of 0: ${result}`);
+
+//Clean-Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
