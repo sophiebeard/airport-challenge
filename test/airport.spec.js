@@ -27,5 +27,26 @@ result = undefined;
 airport = null;
 plane = null;
 
+// Test 2 - When a plane lands, is a string returned?
+
+//Arrange
+airport = new Airport();
+plane = { id: `easyJet` };
+expected = `${plane} has landed.`;
+
+//Act
+airport.landPlane(plane);
+actual = airport.landPlane(plane);
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 2 - A string is returned when a plane lands: ${result}`);
+
+//Clean-Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
 
 
