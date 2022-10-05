@@ -137,7 +137,7 @@ result = undefined;
 airport = null;
 plane = null;
 
-// Test 6 - Test that if a plane doesn't land, a string is returned to inform the traffic control officer?
+// Test 6 - Test that if a plane doesn't land because the airport is full, a string is returned to inform the traffic control officer?
 
 //Arrange
 airport = new Airport(0);
@@ -173,6 +173,29 @@ actual = airport.planesInAirport.length;
 //Assert
 result = assertEquals(expected, actual);
 console.log(`Test 7 - A plane has taken off, and is no longer at the airport: ${result}`);
+
+//Clean-Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+
+// Test 7.1 - Confirm that when a plane takes off, it is not in the airport?
+
+//Arrange
+airport = new Airport(2);
+airport.planesInAirport = [`easyJet`, `ryanAir`];
+plane = { id: `easyJet` };
+expected = 1;
+
+//Act
+airport.takeOffPlane(plane);
+actual = airport.planesInAirport.length;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 7.1 - The plane is no longer at the airport: ${result}`);
 
 //Clean-Up
 expected = undefined;
