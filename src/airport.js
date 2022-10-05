@@ -3,7 +3,7 @@ class Airport {
   planesInAirport;
   capacity;
 
-  constructor(capacity) {
+  constructor(capacity = 0) {
     this.planesInAirport = [];
     this.capacity = capacity;
   };
