@@ -158,7 +158,7 @@ result = undefined;
 airport = null;
 plane = null;
 
-// Test 7 - Test that a plane is no longer at the airport when it has taken off?
+// Test 7 - Test that the number of planes reduces when a plane takes off?
 
 //Arrange
 airport = new Airport(1);
@@ -181,7 +181,7 @@ result = undefined;
 airport = null;
 plane = null;
 
-// Test 7.1 - Confirm that when a plane takes off, it is not in the airport?
+// Test 7.1 - Confirm that when a plane takes off, the plane is not in the airport?
 
 //Arrange
 airport = new Airport(2);
@@ -204,7 +204,7 @@ result = undefined;
 airport = null;
 plane = null;
 
-// Test 8 - Test that a plane is no longer at the airport when it has taken off?
+// Test 8 - Test that a string is returned when a plane takes off?
 
 //Arrange
 airport = new Airport(1);
@@ -218,26 +218,6 @@ actual = airport.takeOffPlane(plane);
 //Assert
 result = assertEquals(expected, actual);
 console.log(`Test 8 - When a plane takes off, a string is returned: ${result}`);
-
-//Clean-Up
-expected = undefined;
-actual = undefined;
-result = undefined;
-airport = null;
-plane = null;
-
-// Test 9 - Test that airport has an isPlaneInAirport function?
-
-//Arrange
-airport = new Airport(2)
-airport.planesInAirport = [new Plane("easyJet"), new Plane("ryanAir")];
-
-// Act
-actual = airport.isPlaneInAirport("easyJet");
-
-// Assert
-result = assertTrue(actual);
-console.log(`Test 9 - Test that the airport has an isPlaneInAirport function that sees plane IDs: ${result}`);
 
 //Clean-Up
 expected = undefined;

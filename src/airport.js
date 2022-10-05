@@ -30,10 +30,6 @@ class Airport {
     }
   };
 
-  isPlaneInAirport = (plane) => {
-    return this.planesInAirport.includes(plane);
-  }
-
   checkID(plane) {
     if (plane.id === `${plane.id}`) return true
   };
