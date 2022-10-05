@@ -110,10 +110,21 @@ We have a request from a client to write the software to control the flow of pla
 |         |                                | isPlaneInAirport(plane @string)      | @boolean                           |
 
 ### Tests:
-1. Test that isPlaneInAirport returns true when the plane is in the airport. 
-2. Test that isPlaneInAirport returns false when the plane is not in the airport.
-3. Test that takeOffPlane returns message that plane has taken off if IsPlaneInAirport returns false.
-4. Test that takeOffPlane returns message that plane is in the airport if IsPlaneInAirport returns true.
+1. Test that the airport has an isPlaneInAirport function that returns true when a plane is in the airport. 
+2. Test that the airport has an isPlaneInAirport function that returns false when a plane is not in the airport. 
+3. Test that if a plane is in the airport, it cannot land.
+4. Test that if a plane is not at the airport, it cannot take off. 
+
+
+
+
+
+
+
+
+
+
+
 ------------------------------------------------------------------------------------------------------------------
 
 
