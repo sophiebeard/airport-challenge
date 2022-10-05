@@ -53,7 +53,8 @@ We have a request from a client to write the software to control the flow of pla
 ### Tests:
 
 1. Test that a plane is added to the planesInAirport array. 
-2. Test that landPlane returns a string when a plane has landed. 
+2. Test that a specific plane is added to the planesInAirport array.
+3. Test that landPlane returns a string when a plane has landed. 
 ------------------------------------------------------------------------------------------------------------------
 ```
 2. As the system designer
@@ -111,9 +112,8 @@ We have a request from a client to write the software to control the flow of pla
 
 ### Tests:
 1. Test that the airport has an isPlaneInAirport function that returns true when a plane is in the airport. 
-2. Test that the airport has an isPlaneInAirport function that returns false when a plane is not in the airport. 
-3. Test that if a plane is in the airport, it cannot land.
-4. Test that if a plane is not at the airport, it cannot take off. 
+2. Test that if a plane is in the airport, it cannot land.
+3. Test that if a plane is not at the airport, it cannot take off. 
 
 
 

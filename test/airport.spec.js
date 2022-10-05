@@ -1,6 +1,6 @@
-const Airport = require("../src/airport.js"); 
+const Airport = require("../src/airport.js");
 const { assertEquals, assertTrue } = require("../testing-framework");
-const Plane = require("../src/plane.js"); 
+const Plane = require("../src/plane.js");
 
 let expected;
 let actual;
@@ -22,6 +22,28 @@ actual = airport.planesInAirport.length;
 //Assert
 result = assertEquals(expected, actual);
 console.log(`Test 1 - A plane has landed at the airport: ${result}`);
+
+//Clean-Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+
+// Test 1.1 - Does the landed plane have the same I.D?
+
+// Arrange
+airport = new Airport(1);
+plane = { id: `easyJet` };
+expected = true;
+
+// Act
+airport.landPlane(plane);
+actual = airport.checkID(plane);
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 1.1 - The expected plane has landed at the airport: ${result}`);
 
 //Clean-Up
 expected = undefined;
@@ -184,17 +206,15 @@ plane = null;
 // Test 9 - Test that airport has an isPlaneInAirport function?
 
 //Arrange
-airport = new Airport(1);
-plane = new Plane();
-expected = true;
+airport = new Airport(2)
+airport.planesInAirport = [new Plane("easyJet"), new Plane("ryanAir")];
 
 // Act
-airport.landPlane(plane);
-actual = airport.isPlaneInAirport(plane);
+actual = airport.isPlaneInAirport("easyJet");
 
 // Assert
-result = assertEquals(expected, actual);
-console.log(`Test 9 - Test that the airport has an isPlaneInAirport fucntion that sees plane IDs: ${result}`);
+result = assertTrue(actual);
+console.log(`Test 9 - Test that the airport has an isPlaneInAirport function that sees plane IDs: ${result}`);
 
 //Clean-Up
 expected = undefined;
@@ -202,3 +222,4 @@ actual = undefined;
 result = undefined;
 airport = null;
 plane = null;
+

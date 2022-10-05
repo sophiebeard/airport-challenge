@@ -1,7 +1,8 @@
 class Plane {
-    id;
-
-    id = () => this.id;
+    constructor(name) {
+        this.name = name;
+    }
+    name;
 };
 
 module.exports = Plane;

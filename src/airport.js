@@ -3,7 +3,7 @@ class Airport {
   planesInAirport;
   capacity;
 
-  constructor(capacity = 0) {
+  constructor(capacity) {
     this.planesInAirport = [];
     this.capacity = capacity;
   };
@@ -33,6 +33,10 @@ class Airport {
   isPlaneInAirport = (plane) => {
     return this.planesInAirport.includes(plane);
   }
+
+  checkID(plane) {
+    if (plane.id === `${plane.id}`) return true
+  };
 };
 
 module.exports = Airport;
