@@ -1,5 +1,6 @@
 const Airport = require("../src/airport.js"); 
-const { assertEquals } = require("../testing-framework");
+const { assertEquals, assertTrue } = require("../testing-framework");
+const Plane = require("../src/plane.js"); 
 
 let expected;
 let actual;
@@ -158,7 +159,7 @@ result = undefined;
 airport = null;
 plane = null;
 
-// Test 7 - Test that a plane is no longer at the airport when it has taken off?
+// Test 8 - Test that a plane is no longer at the airport when it has taken off?
 
 //Arrange
 airport = new Airport(1);
@@ -180,4 +181,24 @@ result = undefined;
 airport = null;
 plane = null;
 
+// Test 9 - Test that airport has an isPlaneInAirport function?
 
+//Arrange
+airport = new Airport(1);
+plane = new Plane();
+expected = true;
+
+// Act
+airport.landPlane(plane);
+actual = airport.isPlaneInAirport(plane);
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 9 - Test that the airport has an isPlaneInAirport fucntion that sees plane IDs: ${result}`);
+
+//Clean-Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;

@@ -29,6 +29,10 @@ class Airport {
       return false;
     }
   };
-}
+
+  isPlaneInAirport = (plane) => {
+    return this.planesInAirport.includes(plane);
+  }
+};
 
 module.exports = Airport;
