@@ -44,67 +44,72 @@ We have a request from a client to write the software to control the flow of pla
 1. As an air traffic controller
    So I can get passengers to a destination
    I want to instruct the airport to land a plane
+```
 
 | Objects | Properties                     | Messages                         | Output                           |
 |---------|--------------------------------|----------------------------------|----------------------------------|
 | airport | planesInAirport @array[@string]| landPlane(plane @string)         | @string - `{$plane} has landed.` |
 
-Tests:
+### Tests:
 
 1. Test that a plane is added to the planesInAirport array. 
 2. Test that landPlane returns a string when a plane has landed. 
 ------------------------------------------------------------------------------------------------------------------
+```
 2. As the system designer
    So that the software can be used for many different airports
    I would like a default airport capacity that can be overridden as appropriate
-
+```
 | Objects | Properties                     | Messages                         | Output                           |
 |---------|--------------------------------|----------------------------------|----------------------------------|
 | airport | default capacity @number       |                                  |                                  |
 
-Tests:
+### Tests:
 1. Test that a default capacity is set when an airport is created. 
 2. Test that the capacity changes. 
 ------------------------------------------------------------------------------------------------------------------
+```
 3. As an air traffic controller
    To ensure safety
    I want to prevent landing when the airport is full
-
+```
 | Objects | Properties                     | Messages                         | Output                           |
 |---------|--------------------------------|----------------------------------|----------------------------------|
 | airport | capacity @number               | setCapacity(newCapacity @number) |                                  |
 |         | planesInAirport @array[@string]| landPlane(plane @string)         | @string - `{$plane} has landed.` |
 |         |                                |                                  | or - `{$plane} has not landed.`  |
 
-Tests:
+### Tests:
 1. Test that if planesInAirport is at capacity, a plane doesn't land. 
 2. Test that if the plane doesn't land, a string is returned to inform the traffic control officer. 
 3. Test that if planesInAirport is not at capacity, the plane lands. 
 4. Test that if the plane lands, the traffic control officer is informed. 
 ------------------------------------------------------------------------------------------------------------------
+```
 4. As an air traffic controller
    So I can get passengers on the way to their destination
    I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
-
+```
 | Objects | Properties                     | Messages                         | Output                             |
 |---------|--------------------------------|----------------------------------|------------------------------------|
 | airport | planesInAirport @array[@string]| takeOffPlane(plane @string)      | @string - `{$plane} has taken off.`|
 
-Tests:        
+### Tests:        
 1. Test that the plane is no longer at the airport when it has taken off. 
 2. Test that takeOffPlane returns a string if plane has taken off. 
 ------------------------------------------------------------------------------------------------------------------
+```
 5. As an air traffic controller
    To avoid confusion
    I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
-
+```
 | Objects | Properties                     | Messages                             | Output                             |
 |---------|--------------------------------|--------------------------------------|------------------------------------|
 | airport | planesInAirport @array[@string]| takeOffPlane(plane @string)          | @string - `{$plane} has taken off.`|
 |         |                                | landPlane(plane @string)             | @string - `{$plane} has landed.`   |
 |         |                                | isPlaneInAirport(plane @string)      | @boolean                           |
 
-Tests:
+### Tests:
 1. Test that isPlaneInAirport returns true when the plane is in the airport. 
 2. Test that isPlaneInAirport returns false when the plane is not in the airport.
 3. Test that takeOffPlane returns message that plane has taken off if IsPlaneInAirport returns false.

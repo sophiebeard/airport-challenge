@@ -9,14 +9,21 @@ class Airport {
   };
 
   landPlane = (plane) => {
-    this.planesInAirport.push(plane);
-    return `${plane} has landed.`;
-  };
+    if (this.isFull()) {
+      return `${plane.id} cannot land because the airport is at capacity.`
+    } else {
+      this.planesInAirport.push(plane);
+      return `${plane.id} has landed.`;
+    }
+  }
 
   isFull = () => {
-    return this.planesInAirport.length >= this.capacity;
+    if (this.planesInAirport.length >= this.capacity) {
+      return true;
+    } else {
+      return false;
+    }
   };
-
 }
 
 module.exports = Airport;

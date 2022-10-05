@@ -4,11 +4,13 @@ const { assertEquals } = require("../testing-framework");
 let expected;
 let actual;
 let result;
+let airport;
+let plane;
 
 // Test 1 - Has a plane landed at the airport?
 
 //Arrange
-airport = new Airport();
+airport = new Airport(1);
 plane = { id: `easyJet` };
 expected = 1;
 
@@ -30,12 +32,11 @@ plane = null;
 // Test 2 - When a plane lands, is a string returned?
 
 //Arrange
-airport = new Airport();
+airport = new Airport(1);
 plane = { id: `easyJet` };
-expected = `${plane} has landed.`;
+expected = `easyJet has landed.`;
 
 //Act
-airport.landPlane(plane);
 actual = airport.landPlane(plane);
 
 //Assert
@@ -116,15 +117,12 @@ plane = null;
 // Test 6 - Test that if a plane doesn't land, a string is returned to inform the traffic control officer?
 
 //Arrange
-airport = new Airport(1);
+airport = new Airport(0);
 plane = { id: `easyJet` };
-expected = `${plane} cannot land because the airport is at capacity.`;
-airport.landPlane(plane);
+expected = `easyJet cannot land because the airport is at capacity.`;
 
 //Act
-plane = { id: `ryanAir` };
-airport.landPlane(plane);
-actual = airport.isFull();
+actual = airport.landPlane(plane);
 
 //Assert
 result = assertEquals(expected, actual);
