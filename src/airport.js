@@ -19,6 +19,7 @@ class Airport {
 
   takeOffPlane = (plane) => {
     this.planesInAirport.pop();
+    return `${plane.id} has taken off.`;
   }
 
   isFull = () => {

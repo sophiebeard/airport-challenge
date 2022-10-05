@@ -158,4 +158,26 @@ result = undefined;
 airport = null;
 plane = null;
 
+// Test 7 - Test that a plane is no longer at the airport when it has taken off?
+
+//Arrange
+airport = new Airport(1);
+plane = { id: `easyJet` };
+airport.landPlane(plane);
+expected = `easyJet has taken off.`;
+
+//Act
+actual = airport.takeOffPlane(plane);
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 8 - When a plane takes off, a string is returned: ${result}`);
+
+//Clean-Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+
 
