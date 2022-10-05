@@ -17,6 +17,10 @@ class Airport {
     }
   }
 
+  takeOffPlane = (plane) => {
+    this.planesInAirport.pop();
+  }
+
   isFull = () => {
     if (this.planesInAirport.length >= this.capacity) {
       return true;
