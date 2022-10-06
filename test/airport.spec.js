@@ -184,10 +184,9 @@ plane = null;
 // Test 7.1 - Confirm that when a plane takes off, the plane is not in the airport?
 
 //Arrange
-airport = new Airport(2);
-airport.planesInAirport = [`easyJet`, `ryanAir`];
-plane = { id: `easyJet` };
-expected = 1;
+airport = new Airport(1);
+plane = new Plane();
+expected = 0;
 
 //Act
 airport.takeOffPlane(plane);
@@ -210,7 +209,7 @@ plane = null;
 airport = new Airport(1);
 plane = { id: `easyJet` };
 airport.landPlane(plane);
-expected = `easyJet has taken off.`;
+expected = `${plane} has taken off.`;
 
 //Act
 actual = airport.takeOffPlane(plane);
@@ -263,6 +262,27 @@ actual = airport.planesInAirport.length;
 // Assert
 result = assertEquals(expected, actual);
 console.log(`Test 10 - Test that if a plane is in the airport, it cannot land: ${result}`);
+
+//Clean-Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+
+// Test 11 - Test that if a plane is not in the airport, it cannot take-off?
+
+// Arrange
+airport = new Airport(0);
+expected = 0;
+
+// Act
+airport.takeOffPlane(plane);
+actual = airport.planesInAirport.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 11 - Test that if a plane is not in the airport, it cannot take-off: ${result}`);
 
 //Clean-Up
 expected = undefined;

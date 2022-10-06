@@ -15,12 +15,16 @@ class Airport {
     } else {
       return `${plane.id} cannot land because the airport is at capacity.`;
     }
-  }
+  };
 
   takeOffPlane = (plane) => {
-    this.planesInAirport.pop();
-    return `${plane.id} has taken off.`;
-  }
+    if (this.isPlaneInAirport(plane)) {
+      this.planesInAirport.pop(plane);
+      return `${plane} has taken off.`;
+    } else {
+      return `${plane} cannot take-off because it is not at the airport.`;
+    }
+  };
 
   isFull = () => {
     if (this.planesInAirport.length >= this.capacity) {
