@@ -239,7 +239,30 @@ actual = airport.isPlaneInAirport(plane);
 
 // Assert
 result = assertEquals(expected, actual);
-console.log(`Test 9 - Test that the airport has an isPlaneInAirport fucntion that sees plane IDs: ${result}`);
+console.log(`Test 9 - Test that the airport has an isPlaneInAirport function that sees plane IDs: ${result}`);
+
+//Clean-Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+
+// Test 10 - Test that if a plane is in the airport, it cannot land?
+
+// Arrange
+airport = new Airport(2);
+plane = new Plane();
+planesInAirport = [plane];
+expected = 1;
+
+// Act
+airport.landPlane(plane);
+actual = airport.planesInAirport.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 10 - Test that if a plane is in the airport, it cannot land: ${result}`);
 
 //Clean-Up
 expected = undefined;
