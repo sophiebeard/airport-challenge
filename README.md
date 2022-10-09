@@ -82,11 +82,11 @@ We have a request from a client to write the software to control the flow of pla
    To avoid confusion
    I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 ```
-| Objects | Properties                      | Messages                        | Output                                                               |
-| ------- | ------------------------------- | ------------------------------- | -------------------------------------------------------------------- |
+| Objects | Properties                      | Messages                        | Output                                                              |
+| ------- | ------------------------------- | ------------------------------- | ------------------------------------------------------------------- |
 | airport | planesInAirport @array[@string] | takeOffPlane(plane @string)     | @string - `{$plane} has taken off` or `{$plane} is not in airport`  |
 |         |                                 | landPlane(plane @string)        | @string - `{$plane} has landed` or `{$plane} is already in airport` |
-|         |                                 | isPlaneInAirport(plane @string) | @boolean                                                             |
+|         |                                 | isPlaneInAirport(plane @string) | @boolean                                                            |
 
 ### Tests:
 1. Test that the airport has an isPlaneInAirport function that returns true when a plane is in the airport. 
@@ -101,11 +101,34 @@ We have a request from a client to write the software to control the flow of pla
 As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
+```
 
+| Objects | Properties                      | Messages                    | Output                                                             |
+| ------- | ------------------------------- | --------------------------- | ------------------------------------------------------------------ |
+| airport | planesInAirport @array[@string] | takeOffPlane(plane @string) | @string - `{$plane} has taken off` or `{$plane} is not in airport` |
+| weather | stormy @boolean                 |                             | @boolean                                                           |
+|         |                                 |                             |
+
+### Tests:        
+1. Test that a plane cannot land if the weather is stormy. 
+------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+```
 As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
+```
 
+
+
+
+```
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport

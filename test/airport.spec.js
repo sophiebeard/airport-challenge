@@ -1,5 +1,5 @@
 const Airport = require("../src/airport.js");
-const { assertEquals, assertTrue } = require("../testing-framework");
+const { assertEquals, assertTrue, assertFalse } = require("../testing-framework");
 const Plane = require("../src/plane.js");
 
 let expected;
@@ -290,3 +290,26 @@ actual = undefined;
 result = undefined;
 airport = null;
 plane = null;
+
+// Test 12 - Test that a plane cannot land if the weather is stormy.
+
+// Arrange
+airport = new Airport(2, "stormy");
+plane = new Plane();
+expected = 0;
+
+// Act
+airport.landPlane(plane);
+actual = airport.planesInAirport.length;
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(`Test 12 - Test that a plane cannot land if the weather is stormy: ${result}`);
+
+//Clean-Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+weather = null;

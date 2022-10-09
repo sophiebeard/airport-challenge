@@ -2,14 +2,16 @@ class Airport {
 
   planesInAirport;
   capacity;
+  weather;
 
-  constructor(capacity = 0) {
+  constructor(capacity = 0, weather = "clear") {
     this.planesInAirport = [];
     this.capacity = capacity;
+    this.weather = weather;
   };
 
   landPlane = (plane) => {
-    if (!this.isFull() && !this.isPlaneInAirport(plane)) {
+    if (!this.isFull() && !this.isPlaneInAirport(plane) && (this.weather === "clear")) {
       this.planesInAirport.push(plane);
       return `${plane.id} has landed.`;
     } else {
