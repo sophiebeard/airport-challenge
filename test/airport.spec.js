@@ -313,3 +313,4 @@ result = undefined;
 airport = null;
 plane = null;
 weather = null;
+
