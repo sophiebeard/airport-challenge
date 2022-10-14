@@ -137,6 +137,7 @@ To get a local copy up and running follow these steps:
 - [ ] Next Steps:
     - [ ] If I were to attempt this project again, I would focus on decoupling the classes and tests, and writing each class so that it is single responsibility. Also, I would like to encapsulate my code, and implement getter and setter functions to allow access. I would use a testing framework, such as Jasmine, to run my tests.
     - [ ] With more time, I would have liked to fully complete the extended assessment criteria, preventing take-off during stormy weather, and writing code that would be able to count the number of planes in the airport. 
+    - [ ] Specifically, I would review my Airport class for single responsibility. I would look for opportunities to remove if-else statements. 
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
